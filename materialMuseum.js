@@ -79,6 +79,22 @@ goldLight.position.set(-10, 10, -5);
 goldLight.castShadow = true;
 scene.add(goldLight);
 
+//directionalLight
+const dirLight = new THREE.DirectionalLight(
+    0xffffff, 0.7
+)
+dirLight.position.set(-50, 50, 50);
+scene.add(dirLight);
+
+//point light over plastic
+const plasticLight = new THREE.PointLight(
+    0xffffff, 200
+);
+plasticLight.position.set(-5, 10, -7);
+plasticLight.castShadow = true;
+scene.add(plasticLight);
+
+
 // ---------------------------------------------------
 // Floor
 // ---------------------------------------------------
@@ -146,19 +162,17 @@ const yellowMaterial =
         color: 0xffd43b
     });
 
-const greenMaterial =
-    new THREE.MeshBasicMaterial({
-        color: 0x2ecc71
+const treeMaterial =
+    new THREE.MeshLambertMaterial({
+        color: 0x6E5427
     });
 
-const cyanMaterial =
-    new THREE.MeshBasicMaterial({
-        color: 0x00bcd4
-    });
-
-const redMaterial =
-    new THREE.MeshBasicMaterial({
-        color: 0xff4d4d
+const plasticMaterial =
+    new THREE.MeshPhongMaterial({
+        color: 0x00bcd4,
+        shininess: 1000,
+        specular: 0xffffff, 
+        emissive: 0x000000
     });
 
 const whiteMaterial =
@@ -171,8 +185,8 @@ const orangeMaterial =
         color: 0xff8c42
     });
 
-const magentaMaterial =
-    new THREE.MeshBasicMaterial({
+const cartoonMaterial =
+    new THREE.MeshToonMaterial({
         color: 0xff4fd8
     });
 
@@ -200,6 +214,7 @@ const goldMaterial =(
 
 createPedestal(-9, -4);
 
+//gold sphere
 const sphere =
     new THREE.Mesh(
         new THREE.SphereGeometry(1, 32, 32),
@@ -213,10 +228,11 @@ scene.add(sphere);
 
 createPedestal(-3, -4);
 
+//plastic cube
 const cube =
     new THREE.Mesh(
         new THREE.BoxGeometry(2,2,2),
-        cyanMaterial
+        plasticMaterial
     );
 
 placeOnPedestal(cube, -3, -4);
@@ -239,10 +255,12 @@ scene.add(crystal);
 
 createPedestal(9, -4);
 
+//toon statue
+
 const statue =
     new THREE.Mesh(
         new THREE.ConeGeometry(1,3,32),
-        magentaMaterial
+        cartoonMaterial
     );
 
 placeOnPedestal(statue, 9, -4);
@@ -308,6 +326,8 @@ scene.add(normalObject);
 
 createPedestal(9, 5);
 
+//tree material 
+
 const tree =
     new THREE.Mesh(
         new THREE.CylinderGeometry(
@@ -316,7 +336,7 @@ const tree =
             3,
             6
         ),
-        greenMaterial
+        treeMaterial
     );
 
 placeOnPedestal(tree, 9, 5);
