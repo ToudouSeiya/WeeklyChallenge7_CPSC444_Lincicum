@@ -1,0 +1,23 @@
+Reflection Questions
+
+1. Which material looked the most realistic?
+
+In my opinion, the gold material (Standard) looks the most realistic. It has a range of shades from the lighting,
+with highlights and shadows, and it really does look metallic. The plastic cube also looks realistic for 
+the same reasons, and it also has specular highlights.
+
+2. Which material looked the most cartoon-like?
+
+The toon lighting, unsurprisingly, looked the most cartoon-like. It has a cel-shaded feel to it
+with bands of different colors rather than a gradient of shading.
+
+3. Which material would you use for a metal robot?
+
+I would use the Standard material with metalicness set high, similar to the gold material.
+
+4. How did adding the spotlight affect the scene?
+
+While the highlights of the gold and plastic materials were hard to see before, adding the 
+spotlight made it much more clear to see the unique ways that they reflect light to create
+the illusion of different materials
+

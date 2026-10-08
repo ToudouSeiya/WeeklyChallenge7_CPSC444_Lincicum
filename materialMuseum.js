@@ -73,11 +73,33 @@ scene.add(helper);
 
 //point light over gold
 const goldLight = new THREE.PointLight(
-    0xffffff, 200
+    0xffffff, 10
 );
 goldLight.position.set(-10, 10, -5);
 goldLight.castShadow = true;
 scene.add(goldLight);
+
+const spotlight = new THREE.SpotLight(
+    0xffffff,
+    1000
+);
+
+spotlight.position.set(-2, 15, -5);
+spotlight.angle = Math.PI / 8;
+
+spotlight.target.position.set(
+    -5,
+    0,
+    -4
+);
+spotlight.castShadow = true;
+scene.add(spotlight);
+scene.add(spotlight.target);
+
+// const spotlightHelper = new THREE.SpotLightHelper(spotlight);
+// scene.add(spotlightHelper);
+
+
 
 //directionalLight
 const dirLight = new THREE.DirectionalLight(
@@ -86,13 +108,6 @@ const dirLight = new THREE.DirectionalLight(
 dirLight.position.set(-50, 50, 50);
 scene.add(dirLight);
 
-//point light over plastic
-const plasticLight = new THREE.PointLight(
-    0xffffff, 200
-);
-plasticLight.position.set(-5, 10, -7);
-plasticLight.castShadow = true;
-scene.add(plasticLight);
 
 
 // ---------------------------------------------------
@@ -103,7 +118,7 @@ const floorGeometry =
     new THREE.PlaneGeometry(40, 40);
 
 const floorMaterial =
-    new THREE.MeshBasicMaterial({
+    new THREE.MeshStandardMaterial({
         color: 0x444444
     });
 
@@ -164,13 +179,13 @@ const yellowMaterial =
 
 const treeMaterial =
     new THREE.MeshLambertMaterial({
-        color: 0x6E5427
+        color: 0xDBBC88
     });
 
 const plasticMaterial =
     new THREE.MeshPhongMaterial({
         color: 0x00bcd4,
-        shininess: 1000,
+        shininess: 100,
         specular: 0xffffff, 
         emissive: 0x000000,
         specularIntensity: 1
