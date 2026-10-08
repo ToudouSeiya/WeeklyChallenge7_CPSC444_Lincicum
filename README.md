@@ -31,3 +31,9 @@ Then open [http://localhost:8000/materialMuseum.html](http://localhost:8000/mate
 - Add your own object and a mystery object with a material of your choice.
 
 The displayed objects currently use `MeshBasicMaterial`, which is unaffected by scene lighting and does not use roughness or metalness. To experiment with those properties, try `MeshStandardMaterial` or `MeshPhysicalMaterial` on an object.
+
+## Questions 
+### 1. What material is currently used throughout the museum?
+Mesh Basic Material
+### 2. Why do the objects appear flat and similar?
+The Basic material ignores lighting, so you don't get the 3D effect that you should from different colored faces. They all look similar because they all have the same material.

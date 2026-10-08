@@ -1,3 +1,6 @@
+//Morgan Lincicum
+//CPSC444 WeeklyChallenge3
+
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
@@ -67,6 +70,14 @@ const helper = new THREE.PointLightHelper(
 );
 
 scene.add(helper);
+
+//point light over gold
+const goldLight = new THREE.PointLight(
+    0xffffff, 200
+);
+goldLight.position.set(-10, 10, -5);
+goldLight.castShadow = true;
+scene.add(goldLight);
 
 // ---------------------------------------------------
 // Floor
@@ -175,6 +186,14 @@ const blueMaterial =
         color: 0x4169e1
     });
 
+const goldMaterial =(
+    new THREE.MeshStandardMaterial({
+        color: 0xffff00,
+        roughness: 0.6,
+        metalness: 1 
+    })
+);
+
 // ---------------------------------------------------
 // Row 1
 // ---------------------------------------------------
@@ -184,7 +203,7 @@ createPedestal(-9, -4);
 const sphere =
     new THREE.Mesh(
         new THREE.SphereGeometry(1, 32, 32),
-        redMaterial
+        goldMaterial
     );
 
 placeOnPedestal(sphere, -9, -4);
