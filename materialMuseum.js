@@ -172,7 +172,8 @@ const plasticMaterial =
         color: 0x00bcd4,
         shininess: 1000,
         specular: 0xffffff, 
-        emissive: 0x000000
+        emissive: 0x000000,
+        specularIntensity: 1
     });
 
 const whiteMaterial =
@@ -180,9 +181,8 @@ const whiteMaterial =
         color: 0xf5f5f5
     });
 
-const orangeMaterial =
-    new THREE.MeshBasicMaterial({
-        color: 0xff8c42
+const normalMaterial =
+    new THREE.MeshNormalMaterial({
     });
 
 const cartoonMaterial =
@@ -190,9 +190,13 @@ const cartoonMaterial =
         color: 0xff4fd8
     });
 
-const purpleMaterial =
-    new THREE.MeshBasicMaterial({
-        color: 0x9b59b6
+const waterMaterial =
+    new THREE.MeshPhysicalMaterial({
+        color: 0x9999ff,
+        transmission: 1,
+        roughness: 0,
+        clearcoat: 0,
+        ior: 1.325
     });
 
 const blueMaterial =
@@ -282,7 +286,7 @@ const torus =
             16,
             100
         ),
-        orangeMaterial
+        normalMaterial
     );
 
 placeOnPedestal(torus, -9, 5);
@@ -316,7 +320,7 @@ const normalObject =
             100,
             16
         ),
-        purpleMaterial
+        waterMaterial
     );
 
 placeOnPedestal(normalObject, 3, 5);
